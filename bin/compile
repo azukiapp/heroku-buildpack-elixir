@@ -15,13 +15,13 @@ test -z ${build} && exit
 cache=$(cd "$2/" && pwd)
 test -z ${cache} && exit
 
-DEFAULT_OTP_VERSION="master"
+DEFAULT_OTP_VERSION="R16B01"
 if [ -f ${build}/.preferred_otp_version ]; then
   OTP_VERSION=$(cat ${build}/.preferred_otp_version)
 fi
 erl_ver=${OTP_VERSION:=${DEFAULT_OTP_VERSION}}
-erl_tarball=${erl_ver}.tgz
-OTP_TARBALL_URL="https://s3.amazonaws.com/heroku-buildpack-erlang/${erl_tarball}"
+erl_tarball=${erl_ver}.tar.gz
+OTP_TARBALL_URL="https://s3.amazonaws.com/azuki-buildpack-erlang/${erl_tarball}"
 ERLROOT=${build}/otp
 
 DEFAULT_ELIXIR_VERSION="master"
@@ -29,8 +29,8 @@ if [ -f ${build}/.preferred_elixir_version ]; then
   ELIXIR_VERSION=$(cat ${build}/.preferred_elixir_version)
 fi
 ex_ver=${ELIXIR_VERSION:=${DEFAULT_ELIXIR_VERSION}}
-ex_tarball=${ex_ver}.tar
-ELIXIR_TARBALL_URL="https://github.com/elixir-lang/elixir/tarball/${ex_ver}"
+ex_tarball=${ex_ver}.tar.gz
+ELIXIR_TARBALL_URL="https://github.com/elixir-lang/elixir/archive/${ex_tarball}"
 EXROOT=${build}/ex
 
 echo "-----> Using Erlang/OTP $erl_ver"
