@@ -55,6 +55,7 @@ ln -s ${ERLROOT} /app/otp
 ${ERLROOT}/Install -minimal /app/otp
 
 PATH=/app/otp/bin:$PATH
+HOME=/app
 
 if [ ! -e "rebar" ]; then
   echo "-----> Installing Rebar from buildpack"
