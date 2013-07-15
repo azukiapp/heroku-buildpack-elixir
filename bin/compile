@@ -74,12 +74,11 @@ echo "-----> Using Elixir $ex_ver"
   cd ${cache}
   echo "-------> Fetching Elixir $ex_ver"
   curl -LsO ${ELIXIR_TARBALL_URL} -o $ex_tarball || exit 1
-  mv $ex_ver $ex_tarball
 )
 
 echo "-------> Unpacking Elixir $ex_ver"
 mkdir -p ${EXROOT}
-tar xf ${cache}/${ex_tarball} -C ${EXROOT} --strip-components=1
+tar xzf ${cache}/${ex_tarball} -C ${EXROOT} --strip-components=1
 echo "-------> Installing Elixir $ex_ver"
 
 (
